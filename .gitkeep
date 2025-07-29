@@ -1,0 +1,4 @@
+touch data/arxiv_papers/.gitkeep
+touch data/index_storage_raptor_mm/.gitkeep
+touch data/nougat_output/.gitkeep
+touch data/image_output/.gitkeep

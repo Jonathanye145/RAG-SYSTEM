@@ -17,15 +17,14 @@ The project follows a standard GitHub Python project layout for clarity and main
 
 ```
 rag_workflow/
-├── src/                           # Source code directory
-│   └── rag_workflow/             # Python package for the RAG workflow
-│       ├── __init__.py           # Package initialization
-│       ├── config.py             # Configuration constants
-│       ├── utils.py              # Helper functions for PDF processing
-│       ├── retriever.py          # BM25 Retriever implementation
-│       ├── workflow.py           # Core RAG workflow logic
-│       ├── main.py               # CLI entry point
-│       └── api.py                # FastAPI web interface
+├── rag_workflow/             # Python package for the RAG workflow
+│   ├── __init__.py           # Package initialization
+│   ├── config.py             # Configuration constants
+│   ├── utils.py              # Helper functions for PDF processing
+│   ├── retriever.py          # BM25 Retriever implementation
+│   ├── workflow.py           # Core RAG workflow logic
+│   ├── main.py               # CLI entry point
+│   └── api.py                # FastAPI web interface
 ├── tests/                        # Unit tests
 │   └── test_workflow.py          # Tests for workflow components
 ├── docs/                         # Documentation files
@@ -44,7 +43,7 @@ rag_workflow/
 ```
 
 ### Notes on Structure
-- **`src/rag_workflow/`**: Contains the core Python package, importable as `rag_workflow`.
+- **`rag_workflow/`**: Contains the core Python package.
 - **`tests/`**: Unit tests to ensure code reliability.
 - **`docs/`**: API and usage documentation.
 - **`data/`**: Centralizes all data-related directories.
