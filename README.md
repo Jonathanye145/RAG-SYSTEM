@@ -11,6 +11,32 @@ Welcome to the **RAG Workflow Project**! 📚 Transform how you interact with ac
 - **Human-in-the-Loop Feedback**: 🤝 Refine results interactively to ensure pinpoint accuracy.
 - **Validated Answers**: ✅ LLM-driven validation ensures responses are grounded and reliable.
 
+## 🛠️ How It Works
+
+1. **PDF Ingestion** 📥:
+   - PDFs in `data/arxiv_papers/` are processed using Nougat to extract text and LaTeX.
+   - Images are extracted with PyMuPDF, with placeholder LLaVA descriptions for visuals.
+   - Content is parsed into chunks with metadata (e.g., page numbers, LaTeX, visuals).
+
+2. **RAPTOR Indexing** 🗄️:
+   - Chunks are hierarchically organized using RAPTOR.
+   - Text is split, embedded using `BAAI/bge-large-en`, and clustered into summaries.
+   - Indexes are stored in ChromaDB at `data/index_storage_raptor_mm/`.
+
+3. **Retrieval** 🔎:
+   - Choose a strategy:
+     - **Hybrid**: Combines vector and BM25 retrieval with Reciprocal Rank Fusion.
+     - **HyDE**: Generates hypothetical documents for semantic matching.
+     - **Step-Back**: Retrieves broader context with a generalized query.
+   - Retrieve top-k relevant documents.
+
+4. **Human Feedback** 🤲:
+   - Review and refine retrieved documents interactively.
+
+5. **Reranking & Synthesis** 📝:
+   - Rerank documents using an LLM for relevance.
+   - Synthesize a validated answer grounded in the context.
+
 ## 📁 Project Structure
 
 The project follows a standard GitHub Python project layout for clarity and maintainability:
@@ -66,32 +92,6 @@ Customize the RAG Workflow via `src/rag_workflow/config.py`:
 - **EMBEDDING_MODEL_NAME**: Embedding model (`BAAI/bge-large-en`).
 
 Modify these in `config.py` to optimize performance or adapt to your dataset.
-
-## 🛠️ How It Works
-
-1. **PDF Ingestion** 📥:
-   - PDFs in `data/arxiv_papers/` are processed using Nougat to extract text and LaTeX.
-   - Images are extracted with PyMuPDF, with placeholder LLaVA descriptions for visuals.
-   - Content is parsed into chunks with metadata (e.g., page numbers, LaTeX, visuals).
-
-2. **RAPTOR Indexing** 🗄️:
-   - Chunks are hierarchically organized using RAPTOR.
-   - Text is split, embedded using `BAAI/bge-large-en`, and clustered into summaries.
-   - Indexes are stored in ChromaDB at `data/index_storage_raptor_mm/`.
-
-3. **Retrieval** 🔎:
-   - Choose a strategy:
-     - **Hybrid**: Combines vector and BM25 retrieval with Reciprocal Rank Fusion.
-     - **HyDE**: Generates hypothetical documents for semantic matching.
-     - **Step-Back**: Retrieves broader context with a generalized query.
-   - Retrieve top-k relevant documents.
-
-4. **Human Feedback** 🤲:
-   - Review and refine retrieved documents interactively.
-
-5. **Reranking & Synthesis** 📝:
-   - Rerank documents using an LLM for relevance.
-   - Synthesize a validated answer grounded in the context.
 
 ## 📦 Setup Instructions
 
