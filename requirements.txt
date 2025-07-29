@@ -1,0 +1,12 @@
+llama-index
+chromadb
+pymupdf
+rank-bm25
+tqdm
+nest-asyncio
+nougat-ocr
+pytest
+fastapi
+uvicorn
+gunicorn
+slowapi
